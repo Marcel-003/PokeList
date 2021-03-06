@@ -4,15 +4,9 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
 
     const [search, setSearch] = useState("");  
-    
+
     const updateSearch = e => {
         setSearch(e.target.value.toLowerCase());    
-      }
-    
-    const getSearch = e => {
-        e.preventDefault();
-        setQuery(search);
-        setSearch('');
       }
 
     return(
