@@ -8,8 +8,7 @@ const Pokedex = () => {
   const [next, setNext] = useState('');
   const [previous, setPrevious] = useState('');
 
-  useEffect(() => {
-    // console.log("test");
+  useEffect(() => {    
     getPokemon();
   }, []);
 
@@ -19,8 +18,6 @@ const Pokedex = () => {
     setPokemons(data.results);
     setNext(data.next);
     setPrevious(data.previous);
-    // console.log(next, "next");
-    // console.log(previous, "previous");
   }
 
   const nextPage = async() => {
@@ -37,8 +34,7 @@ const Pokedex = () => {
     setPokemons(data.results);
     setNext(data.next);
     setPrevious(data.previous);
-  } 
-  
+  }   
 
   return (
 
@@ -52,9 +48,7 @@ const Pokedex = () => {
       </div>
       <button className="btn btn-primary" onClick={prevPage} style={{margin: 10}}>Prev</button>
       <button className="btn btn-primary" onClick={nextPage}>Next</button>
-    </div> 
-      
-    
+    </div>     
   );
 }
 

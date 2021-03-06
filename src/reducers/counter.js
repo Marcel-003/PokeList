@@ -7,10 +7,8 @@ const counterReducer = (state = initialState, action) => {
             
             const increment = (counterMap, id) => {
                 if (counterMap.has(id)) {
-                    console.log("ada kok")
                     counterMap.get(id).count++;
                 } else {
-                    console.log("gada jir")
                     counterMap.set(id, {
                         pokedexid: id,
                         count: 1,
@@ -18,38 +16,14 @@ const counterReducer = (state = initialState, action) => {
                 }
                 return counterMap;
             }
-            // if (state.pokedexId === action.payload.pokedexId) {
-            //     return [
-            //         ...state,
-            //         state[action.payload.pokedexId].count + 1
-            //     ];
-            // } else {
-            //     console.log(state, "ini state");
-            //     return [
-            //         ...state,
-            //         {
-            //             pokedexId: action.payload.pokedexId,
-            //             count: 1
-            //         }
-            //     ];
-            // }
-
             return {
 
                 ...state,
                 caughtCounter: increment(state.caughtCounter, action.payload.pokedexId),
-                // {
-                //     pokedexId: action.payload.pokedexId,
-                //     count: 1
-                // }
             };
         case 'DECREMENT':
-            const decrement = (counterMap, id) => {
-                console.log("masuk decrement")
-
-                console.log(id);
+            const decrement = (counterMap, id) => {                
                 if (counterMap.has(id)) {
-                    console.log("ada kok")
                     counterMap.get(id).count--;
                 }
                 return counterMap;

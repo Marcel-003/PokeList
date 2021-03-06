@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import store from './store/store';
-import {useSelector, useDispatch} from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const Pokemon = ({ pokemon }) => {
     const map = useSelector(state => state.counter.caughtCounter);
@@ -21,13 +20,11 @@ const Pokemon = ({ pokemon }) => {
         const data = await response.json();
         if(map.has(data.id)) {
             owned = map.get(data.id).count;
-        }
-        // console.log(data);   
+        }  
         setPokemons({
             pokemon : data,
             owned: owned
         });
-        // console.log(pokemons);
     }
 
     return ( 

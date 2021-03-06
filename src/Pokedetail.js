@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import {catchMon, increment} from './actions/actions';
-import store from './store/store';
 import Nickname from './Nickname';
 
 const PokemonDetail = ({match}) => {
@@ -11,14 +8,11 @@ const PokemonDetail = ({match}) => {
     const [pokemons, setPokemons] = useState([]);
     const [catchSuccess, setCatchSuccess] = useState(false);
     const [catchButton, setCatchButton] = useState(false);
-    // const mylist = useSelector(state => state.mylist);
-    const dispatch = useDispatch();
     
     const getPokemon = async() => {
         const response = await fetch(url);
         const data = await response.json();        
         setPokemons(data);
-        // console.log(data);
     }
 
     useEffect(() => {
@@ -33,15 +27,12 @@ const PokemonDetail = ({match}) => {
         {
             setCatchSuccess(true);
             setCatchButton(true);
-        }
-        // console.log(catchSuccess, catchButton);        
+        }      
     }
 
     if(catchSuccess) {
         nickname = <Nickname pokemon={pokemons} />
-    }   
-    
-    // console.log(catchSuccess, catchButton);
+    }
 
     return(
 
@@ -76,10 +67,8 @@ const PokemonDetail = ({match}) => {
                             Catch! (50% rate of success)
                         </button>                        
                         {nickname}
-                    </div> 
-                                       
-                </div>
-                
+                    </div>                                        
+                </div>                
             </div>            
         </div>               
     );  

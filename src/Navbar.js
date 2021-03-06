@@ -1,16 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
-    const [search, setSearch] = useState("");
-    const [query, setQuery] = useState('');
-
-    useEffect(() => {
-        // console.log("test");
-        
-      }, [query]);
-
+    const [search, setSearch] = useState("");  
+    
     const updateSearch = e => {
         setSearch(e.target.value.toLowerCase());    
       }
