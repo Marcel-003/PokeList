@@ -23,7 +23,7 @@ const PokemonDetail = ({match}) => {
 
     useEffect(() => {
         getPokemon();
-    }, []);
+    }, [url]);
 
     const Catch = () => {
         const min = 0;
@@ -32,16 +32,13 @@ const PokemonDetail = ({match}) => {
         if(rand === 1)
         {
             setCatchSuccess(true);
-            setCatchButton(true);            
-            dispatch(catchMon(pokemons, url));
-            dispatch(increment(pokemons));            
-            console.log(store.getState());
+            setCatchButton(true);
         }
         // console.log(catchSuccess, catchButton);        
     }
 
     if(catchSuccess) {
-        nickname = <Nickname />
+        nickname = <Nickname pokemon={pokemons} />
     }   
     
     // console.log(catchSuccess, catchButton);

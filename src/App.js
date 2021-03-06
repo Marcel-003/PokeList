@@ -13,7 +13,7 @@ const App = () => {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Pokedex} />
-        <Route path="/detail/:id" component={Pokedetail} />    
+        <Route exact path="/detail/:id" component={Pokedetail} />    
         <Route path="/mypokemon" component={MyPokemon} />    
       </Switch>  
     </div>

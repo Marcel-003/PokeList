@@ -1,16 +1,38 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import {catchMon, increment} from './actions/actions';
+import store from './store/store';
+import { Link } from 'react-router-dom';
 
-const Nickname = () => {
+const Nickname = ({pokemon}) => {
+
+    const dispatch = useDispatch();
+    const [nickname, setNickname] = useState("");
+
+    const enterNickname = e => {
+        setNickname(e.target.value);    
+      }
+
+    const Catch = () => {                             
+        dispatch(catchMon(pokemon, nickname));
+        dispatch(increment(pokemon));            
+        console.log(store.getState());        
+        // console.log(catchSuccess, catchButton);        
+    }
 
     return(
-        <form>
-            <div className="form-group">
+        
+        
+            <div style={{padding: 30}}>
                 <h3>Success!!!</h3>
-                <label>Nickname</label>
-                <input type="text" className="form-control" placeholder="Enter nickname"/>
+                <p>Nickname : </p>
+                <input type="text" onChange={enterNickname} className="form-control" placeholder="Enter nickname"/>
+                <Link to = { `/mypokemon` }>  
+                    <button onClick={Catch} className="btn btn-primary" style={{marginTop: 10}}>Submit</button>
+                </Link>
             </div>            
-            <button type="submit" className="btn btn-primary">Submit</button>
-        </form>        
+            
+              
     );
 }
 

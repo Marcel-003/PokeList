@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+
+    const [search, setSearch] = useState("");
+    const [query, setQuery] = useState('');
+
+    useEffect(() => {
+        // console.log("test");
+        
+      }, [query]);
+
+    const updateSearch = e => {
+        setSearch(e.target.value.toLowerCase());    
+      }
+    
+    const getSearch = e => {
+        e.preventDefault();
+        setQuery(search);
+        setSearch('');
+      }
 
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -25,8 +43,10 @@ const Navbar = () => {
                     </li>
                 </ul>
                 <form className="form-inline my-2 my-lg-0">
-                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-                    <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <input onChange={updateSearch} className="form-control mr-sm-2" type="search" placeholder="Enter Name/PokedexID" aria-label="Search"/>
+                    <Link to= {`/detail/${search}`}>
+                    <button onClick={()=> setSearch(search)} className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </Link>
                 </form>
             </div>
         </nav>

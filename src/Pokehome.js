@@ -36,7 +36,7 @@ const Pokemon = ({ pokemon }) => {
             <div className = "card-body" >        
                 <h5 className = "card-title" > { pokemons.pokemon.name } </h5> 
                 <p className = "card-text" > Owned: {pokemons.owned > 0 ? pokemons.owned : 0} </p>
-                <Link to = { `/detail/${pokemons.pokemon.id}` } >        
+                <Link to = { `/detail/${pokemons.pokemon.id}` }>        
                     <p href = "" className = "btn btn-primary" > Pokemon Detail </p> 
                 </Link> 
             </div>        

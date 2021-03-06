@@ -1,11 +1,23 @@
-export const catchMon = (pokemon) => {
-    return {
-        type: 'CATCH',
-        payload: {
-            nickname: pokemon.name,
-            detail: pokemon
-        }
-    };
+export const catchMon = (pokemon, nickname) => {
+    if(nickname === "") {
+        return {
+            type: 'CATCH',
+            payload: {
+                nickname: pokemon.name,
+                detail: pokemon
+            }
+        };
+    }
+    else {
+        return {
+            type: 'CATCH',
+            payload: {
+                nickname: nickname,
+                detail: pokemon
+            }
+        };
+    }
+    
 };
 
 export const releaseMon = (pokemon) => {

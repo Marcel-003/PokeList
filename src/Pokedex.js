@@ -5,48 +5,56 @@ import './App.css';
 const Pokedex = () => {
 
   const [pokemons, setPokemons] = useState([]);
-  const [search, setSearch] = useState("");
-  const [query, setQuery] = useState('');
+  const [next, setNext] = useState('');
+  const [previous, setPrevious] = useState('');
 
   useEffect(() => {
     // console.log("test");
     getPokemon();
-  }, [query]);
+  }, []);
 
   const getPokemon = async() => {
     const response = await fetch('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20');
     const data = await response.json();    
     setPokemons(data.results);
+    setNext(data.next);
+    setPrevious(data.previous);
+    // console.log(next, "next");
+    // console.log(previous, "previous");
   }
 
-  const updateSearch = e => {
-    setSearch(e.target.value);    
-  }
+  const nextPage = async() => {
+    const response = await fetch(next);
+    const data = await response.json();    
+    setPokemons(data.results);
+    setNext(data.next);
+    setPrevious(data.previous);
+  } 
 
-  const getSearch = e => {
-    e.preventDefault();
-    setQuery(search);
-    setSearch('');
-
-  }
+  const prevPage = async() => {
+    const response = await fetch(previous);
+    const data = await response.json();    
+    setPokemons(data.results);
+    setNext(data.next);
+    setPrevious(data.previous);
+  } 
+  
 
   return (
-    <div className="Search">
-      <form onSubmit={getSearch} className="search-form" style={{padding : 20}}>
-        <input className="search-bar" type="text" value={search} onChange={updateSearch} />
-        <button className="search-button" type="submit">Search</button>
-      </form>   
 
-      <div className="container">
-        <div className="card-columns">
-          {pokemons.map(pokemon => (      
-            <Pokemon key={pokemon.name}
-            pokemon={pokemon}       
-            />
-          ))}
-        </div>
-      </div> 
-    </div>
+    <div className="container">
+      <div className="card-columns">
+        {pokemons.map(pokemon => (      
+          <Pokemon key={pokemon.name}
+          pokemon={pokemon}       
+          />
+        ))}
+      </div>
+      <button className="btn btn-primary" onClick={prevPage} style={{margin: 10}}>Prev</button>
+      <button className="btn btn-primary" onClick={nextPage}>Next</button>
+    </div> 
+      
+    
   );
 }
 
