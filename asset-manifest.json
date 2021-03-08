@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/PokeList/static/css/main.7163624c.chunk.css",
+    "main.js": "/PokeList/static/js/main.16e34e7f.chunk.js",
+    "main.js.map": "/PokeList/static/js/main.16e34e7f.chunk.js.map",
+    "runtime-main.js": "/PokeList/static/js/runtime-main.f97306bc.js",
+    "runtime-main.js.map": "/PokeList/static/js/runtime-main.f97306bc.js.map",
+    "static/js/2.c7dfad46.chunk.js": "/PokeList/static/js/2.c7dfad46.chunk.js",
+    "static/js/2.c7dfad46.chunk.js.map": "/PokeList/static/js/2.c7dfad46.chunk.js.map",
+    "static/js/3.b0011adf.chunk.js": "/PokeList/static/js/3.b0011adf.chunk.js",
+    "static/js/3.b0011adf.chunk.js.map": "/PokeList/static/js/3.b0011adf.chunk.js.map",
+    "index.html": "/PokeList/index.html",
+    "static/css/main.7163624c.chunk.css.map": "/PokeList/static/css/main.7163624c.chunk.css.map",
+    "static/js/2.c7dfad46.chunk.js.LICENSE.txt": "/PokeList/static/js/2.c7dfad46.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f97306bc.js",
+    "static/js/2.c7dfad46.chunk.js",
+    "static/css/main.7163624c.chunk.css",
+    "static/js/main.16e34e7f.chunk.js"
+  ]
+}
