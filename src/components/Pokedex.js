@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Pokemon from './Pokehome';
-import './App.css';
 
 const Pokedex = () => {
 

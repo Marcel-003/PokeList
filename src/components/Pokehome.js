@@ -16,7 +16,7 @@ const Pokemon = ({ pokemon }) => {
     const getPokemon = async() => {
         
         let owned;
-        const response = await fetch(`${pokemon.url}`);
+        const response = await fetch (`${pokemon.url}`);
         const data = await response.json();
         if(map.has(data.id)) {
             owned = map.get(data.id).count;

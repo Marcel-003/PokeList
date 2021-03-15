@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
-import {catchMon, increment} from './actions/actions';
+import {catchMon, increment} from '../actions/actions';
 import { Link } from 'react-router-dom';
 
 const Nickname = ({pokemon}) => {
