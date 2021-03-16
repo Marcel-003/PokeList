@@ -1,7 +1,7 @@
 import React from 'react';
-import Pokedex from './components/Pokedex';
-import Pokedetail from './components/Pokedetail';
-import MyPokemon from './components/MyPokemon';
+import Pokedex from './container/Pokedex';
+import Pokedetail from './container/Pokedetail';
+import MyPokemon from './container/MyPokemon';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
